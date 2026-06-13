@@ -16,9 +16,6 @@ export default function Footer() {
                 Yatırım<span className="text-emerald-400">Sahası</span>
               </span>
             </div>
-            <p className="text-sm leading-relaxed max-w-sm">
-              Müteahhit firmalar projelerini listeler, alıcılar ve yatırımcılar keşfeder. Platform ödeme transferi yapmaz — tek gelir kaynağı müteahhit aboneliğidir.
-            </p>
           </div>
 
           <div>

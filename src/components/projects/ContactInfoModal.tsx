@@ -100,7 +100,7 @@ export default function ContactInfoModal({ contractor }: { contractor: Contracto
             </div>
 
             <p className="text-xs text-gray-400 mt-5 pt-4 border-t border-gray-100">
-              Platform yalnızca firma iletişim bilgilerini sunar; ödeme transferi yapmaz.
+              Satış sürecini doğrudan müteahhitle yürütün. Anlaşma tamamlandığında platform komisyon uygular.
             </p>
           </div>
         </div>

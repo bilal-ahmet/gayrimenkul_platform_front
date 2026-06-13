@@ -34,6 +34,16 @@ export interface Contractor {
   email?: string
   website?: string
   address?: string
+  /** Firma "Hakkında" tanıtım metni */
+  about?: string
+  /** Kuruluş yılı */
+  foundedYear?: number
+  /** Merkez şehir */
+  city?: string
+  /** Uzmanlık alanları, örn. ['Konut', 'Villa', 'Ticari'] */
+  specialties?: string[]
+  /** Tamamlanmış proje sayısı */
+  completedProjects?: number
 }
 
 export interface DemandEntry {

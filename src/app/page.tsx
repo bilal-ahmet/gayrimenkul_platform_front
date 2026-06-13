@@ -8,7 +8,6 @@ const stats = [
   { label: "Aktif Proje", value: "48" },
   { label: "Yatırımcı Talebi", value: "3.200+" },
   { label: "Kayıtlı Firma", value: "120+" },
-  { label: "Komisyon Oranı", value: "%0" },
 ]
 
 export default function Home() {
@@ -29,7 +28,7 @@ export default function Home() {
               <span className="text-emerald-300">doğrudan listede</span>
             </h1>
             <p className="text-lg text-emerald-100 mb-8 max-w-xl">
-              Aracısız. Komisyonsuz. Müteahhit firmaları projelerini listeler, alıcılar ve yatırımcılar keşfeder ve talep oluşturur.
+              Aracısız. Müteahhit firmaları projelerini listeler, alıcılar ve yatırımcılar keşfeder ve talep oluşturur.
             </p>
             <div className="flex flex-col sm:flex-row gap-3">
               <Link href="/register?role=contractor" className="inline-flex items-center justify-center bg-white text-emerald-800 font-semibold px-6 py-3 rounded-xl hover:bg-emerald-50 transition-colors">
@@ -46,7 +45,7 @@ export default function Home() {
       {/* Stats */}
       <section className="bg-emerald-800 border-b border-emerald-700/50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+          <div className="grid grid-cols-3 gap-6">
             {stats.map((s) => (
               <div key={s.label} className="text-center">
                 <p className="text-2xl font-bold text-white">{s.value}</p>

@@ -1,15 +1,17 @@
 import { notFound } from "next/navigation";
 import Image from "next/image";
-import { MapPin, Star, Building2, Calendar, CheckCircle2, Clock } from "lucide-react";
+import { MapPin, Star, Building2, Calendar, CheckCircle2, Clock, Award, Hammer, Globe } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import Badge from "@/components/ui/Badge";
 import ProgressBar from "@/components/projects/ProgressBar";
 import ContactInfoModal from "@/components/projects/ContactInfoModal";
+import UnitTableSection from "@/components/projects/UnitTableSection";
 import { projects } from "@/data/projects";
 import { contractors } from "@/data/contractors";
 import { formatPrice } from "@/lib/format";
 import type { ConstructionPhase } from "@/types";
+import type { Unit } from "@/components/projects/UnitTableSection";
 
 const PHASES: { key: ConstructionPhase; label: string }[] = [
   { key: "temel",    label: "Temel" },
@@ -22,13 +24,31 @@ const PHASES: { key: ConstructionPhase; label: string }[] = [
 
 const PHASE_ORDER: ConstructionPhase[] = ["temel","kaba","ince","dis_cephe","peyzaj","teslim"]
 
-const mockUnits = [
-  { kat: 1, m2: 95,  oda: "2+1", durum: "Satıldı" },
-  { kat: 2, m2: 110, oda: "3+1", durum: "Satışta" },
-  { kat: 3, m2: 110, oda: "3+1", durum: "Satışta" },
-  { kat: 4, m2: 145, oda: "4+1", durum: "Satıldı" },
-  { kat: 5, m2: 145, oda: "4+1", durum: "Satışta" },
-  { kat: 6, m2: 185, oda: "4+1", durum: "Opsiyonlu" },
+const mockUnits: Unit[] = [
+  // Zemin Kat — 4 daire (1+1 / 2+1 mix, zemin fiyatı daha düşük)
+  { kat: 0, daireNo: 1, m2: 78,  oda: "1+1", durum: "Satıldı",   fiyat: 2_200_000 },
+  { kat: 0, daireNo: 2, m2: 90,  oda: "2+1", durum: "Satıldı",   fiyat: 2_750_000 },
+  { kat: 0, daireNo: 3, m2: 90,  oda: "2+1", durum: "Satışta",   fiyat: 2_800_000 },
+  { kat: 0, daireNo: 4, m2: 115, oda: "3+1", durum: "Satıldı",   fiyat: 3_100_000 },
+  // 1. Kat — 4 daire
+  { kat: 1, daireNo: 1, m2: 78,  oda: "1+1", durum: "Satıldı",   fiyat: 2_350_000 },
+  { kat: 1, daireNo: 2, m2: 92,  oda: "2+1", durum: "Satışta",   fiyat: 2_950_000 },
+  { kat: 1, daireNo: 3, m2: 92,  oda: "2+1", durum: "Opsiyonlu", fiyat: 2_980_000 },
+  { kat: 1, daireNo: 4, m2: 118, oda: "3+1", durum: "Satıldı",   fiyat: 3_350_000 },
+  // 2. Kat — 4 daire
+  { kat: 2, daireNo: 1, m2: 92,  oda: "2+1", durum: "Satışta",   fiyat: 3_100_000 },
+  { kat: 2, daireNo: 2, m2: 92,  oda: "2+1", durum: "Satışta",   fiyat: 3_150_000 },
+  { kat: 2, daireNo: 3, m2: 118, oda: "3+1", durum: "Satıldı",   fiyat: 3_500_000 },
+  { kat: 2, daireNo: 4, m2: 145, oda: "4+1", durum: "Satışta",   fiyat: 4_200_000 },
+  // 3. Kat — 4 daire
+  { kat: 3, daireNo: 1, m2: 92,  oda: "2+1", durum: "Satışta",   fiyat: 3_250_000 },
+  { kat: 3, daireNo: 2, m2: 118, oda: "3+1", durum: "Opsiyonlu", fiyat: 3_650_000 },
+  { kat: 3, daireNo: 3, m2: 118, oda: "3+1", durum: "Satışta",   fiyat: 3_700_000 },
+  { kat: 3, daireNo: 4, m2: 145, oda: "4+1", durum: "Satıldı",   fiyat: 4_400_000 },
+  // 4. Kat (çatı katı) — 3 daire, geniş ve pahalı
+  { kat: 4, daireNo: 1, m2: 118, oda: "3+1", durum: "Satışta",   fiyat: 3_900_000 },
+  { kat: 4, daireNo: 2, m2: 145, oda: "4+1", durum: "Satışta",   fiyat: 4_750_000 },
+  { kat: 4, daireNo: 3, m2: 175, oda: "4+1", durum: "Satışta",   fiyat: 5_500_000 },
 ]
 
 export default async function ProjectDetailPage({ params }: { params: Promise<{ id: string }> }) {
@@ -124,41 +144,99 @@ export default async function ProjectDetailPage({ params }: { params: Promise<{ 
               </div>
 
               {/* Bağımsız Bölümler */}
-              <div className="bg-white rounded-2xl border border-gray-200 p-6">
-                <h2 className="font-semibold text-gray-900 mb-4">Bağımsız Bölümler (Örnek)</h2>
-                <div className="overflow-x-auto">
-                  <table className="w-full text-sm">
-                    <thead>
-                      <tr className="text-left text-gray-500 border-b border-gray-100">
-                        <th className="pb-2 font-medium">Kat</th>
-                        <th className="pb-2 font-medium">m²</th>
-                        <th className="pb-2 font-medium">Oda</th>
-                        <th className="pb-2 font-medium">Durum</th>
-                      </tr>
-                    </thead>
-                    <tbody className="divide-y divide-gray-50">
-                      {mockUnits.map((u, i) => (
-                        <tr key={i} className="hover:bg-gray-50">
-                          <td className="py-2.5 text-gray-700">{u.kat}. Kat</td>
-                          <td className="py-2.5 text-gray-700">{u.m2} m²</td>
-                          <td className="py-2.5 text-gray-700">{u.oda}</td>
-                          <td className="py-2.5">
-                            <span className={`text-xs font-medium px-2 py-0.5 rounded-full ${u.durum === "Satışta" ? "bg-emerald-100 text-emerald-700" : u.durum === "Satıldı" ? "bg-gray-100 text-gray-500" : "bg-amber-100 text-amber-700"}`}>
-                              {u.durum}
-                            </span>
-                          </td>
-                        </tr>
-                      ))}
-                    </tbody>
-                  </table>
+              <UnitTableSection units={mockUnits} />
+
+              {/* İnşaat Firması Hakkında */}
+              {contractor && (
+                <div className="bg-white rounded-2xl border border-gray-200 p-6">
+                  <div className="flex items-center gap-2 mb-4">
+                    <Building2 className="w-5 h-5 text-emerald-700" />
+                    <h2 className="font-semibold text-gray-900">İnşaat Firması Hakkında</h2>
+                  </div>
+
+                  <div className="flex items-start gap-4 pb-5 mb-5 border-b border-gray-100">
+                    <div className="w-12 h-12 bg-emerald-100 rounded-xl flex items-center justify-center shrink-0">
+                      <Building2 className="w-6 h-6 text-emerald-700" />
+                    </div>
+                    <div className="min-w-0">
+                      <p className="font-semibold text-gray-900">{contractor.name}</p>
+                      <div className="flex flex-wrap items-center gap-x-3 gap-y-1 mt-1 text-sm text-gray-500">
+                        <span className="flex items-center gap-1">
+                          <Star className="w-4 h-4 text-amber-400 fill-amber-400" />
+                          <span className="font-medium text-gray-700">{contractor.rating}</span>
+                        </span>
+                        {contractor.city && (
+                          <span className="flex items-center gap-1">
+                            <MapPin className="w-3.5 h-3.5" />
+                            {contractor.city}
+                          </span>
+                        )}
+                        {contractor.foundedYear && (
+                          <span className="flex items-center gap-1">
+                            <Calendar className="w-3.5 h-3.5" />
+                            {contractor.foundedYear}’den beri
+                          </span>
+                        )}
+                      </div>
+                    </div>
+                  </div>
+
+                  {contractor.about && (
+                    <p className="text-sm text-gray-600 leading-relaxed">{contractor.about}</p>
+                  )}
+
+                  {/* Öne çıkan rakamlar */}
+                  <div className="grid grid-cols-3 gap-3 mt-5">
+                    <div className="bg-gray-50 rounded-xl p-3 text-center border border-gray-100">
+                      <Hammer className="w-5 h-5 text-emerald-600 mx-auto mb-1.5" />
+                      <p className="text-lg font-bold text-gray-900">{contractor.projectCount}</p>
+                      <p className="text-xs text-gray-500">Toplam Proje</p>
+                    </div>
+                    <div className="bg-gray-50 rounded-xl p-3 text-center border border-gray-100">
+                      <CheckCircle2 className="w-5 h-5 text-emerald-600 mx-auto mb-1.5" />
+                      <p className="text-lg font-bold text-gray-900">{contractor.completedProjects ?? "—"}</p>
+                      <p className="text-xs text-gray-500">Tamamlanan</p>
+                    </div>
+                    <div className="bg-gray-50 rounded-xl p-3 text-center border border-gray-100">
+                      <Award className="w-5 h-5 text-emerald-600 mx-auto mb-1.5" />
+                      <p className="text-lg font-bold text-gray-900">{contractor.rating}</p>
+                      <p className="text-xs text-gray-500">Puan</p>
+                    </div>
+                  </div>
+
+                  {/* Uzmanlık alanları */}
+                  {contractor.specialties && contractor.specialties.length > 0 && (
+                    <div className="mt-5">
+                      <p className="text-xs font-medium text-gray-500 mb-2">Uzmanlık Alanları</p>
+                      <div className="flex flex-wrap gap-2">
+                        {contractor.specialties.map((s) => (
+                          <span key={s} className="text-xs font-medium bg-emerald-50 text-emerald-700 px-2.5 py-1 rounded-full">
+                            {s}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+                  )}
+
+                  {contractor.website && (
+                    <a
+                      href={contractor.website}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1.5 mt-5 text-sm font-medium text-emerald-700 hover:text-emerald-800 transition-colors"
+                    >
+                      <Globe className="w-4 h-4" />
+                      {contractor.website.replace(/^https?:\/\//, "")}
+                    </a>
+                  )}
                 </div>
-              </div>
+              )}
             </div>
 
             {/* Right Sidebar */}
             <div className="space-y-4">
               {/* Fiyat kartı */}
-              <div className="bg-white rounded-2xl border border-gray-200 p-6 sticky top-20">
+              <div className="bg-white rounded-2xl border border-gray-200 p-6 sticky top-20 z-20">
                 <p className="text-sm text-gray-500">Başlangıç fiyatı</p>
                 <p className="text-3xl font-bold text-emerald-700 mt-1">{formatPrice(project.priceStart)}</p>
                 <div className="mt-4 space-y-2 text-sm text-gray-600">
@@ -175,7 +253,7 @@ export default async function ProjectDetailPage({ params }: { params: Promise<{ 
                   <p>• Peşin (%3 indirim)</p>
                   <p>• 12 – 24 ay taksit</p>
                   <p>• Banka finansmanı</p>
-                  <p className="text-gray-400 italic mt-1">Platform ödeme transferi yapmaz. Bilgi amaçlıdır.</p>
+                  <p className="text-gray-400 italic mt-1">Ödeme detayları müteahhitle doğrudan görüşülür.</p>
                 </div>
 
                 {contractor && <ContactInfoModal contractor={contractor} />}

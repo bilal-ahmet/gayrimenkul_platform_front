@@ -13,7 +13,7 @@ export const mockUsers: MockUser[] = [
     id: 'u2',
     email: 'buyer@demo.com',
     password: '123456',
-    name: 'Ayşe Kaya',
+    name: 'Zeynep Kaya',
     role: 'buyer',
   },
 ]

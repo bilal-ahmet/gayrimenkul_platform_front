@@ -4,6 +4,10 @@ import { useState } from "react";
 import type { Project } from "@/types";
 import ProjectCard from "./ProjectCard";
 import FilterBar, { type FilterState } from "./FilterBar";
+import { contractors } from "@/data/contractors";
+
+// Firma adını id'den bul (lookup haritası)
+const contractorMap = Object.fromEntries(contractors.map(c => [c.id, c.name]))
 
 export default function ProjectGrid({ projects }: { projects: Project[] }) {
   const [filter, setFilter] = useState<FilterState>({ type: '', city: '', search: '' })
@@ -14,7 +18,9 @@ export default function ProjectGrid({ projects }: { projects: Project[] }) {
     if (filter.city && p.location.city !== filter.city) return false
     if (filter.search) {
       const q = filter.search.toLowerCase()
-      if (!p.name.toLowerCase().includes(q) && !p.location.city.toLowerCase().includes(q) && !p.location.district.toLowerCase().includes(q)) return false
+      const firma = contractorMap[p.contractorId] ?? ''
+      const searchable = [p.name, p.location.city, p.location.district, firma].join(' ').toLowerCase()
+      if (!searchable.includes(q)) return false
     }
     return true
   })

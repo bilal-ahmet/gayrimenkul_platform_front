@@ -61,7 +61,7 @@ export default function PricingPage() {
           <div className="text-center mb-12">
             <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Sade ve şeffaf fiyatlandırma</h1>
             <p className="text-gray-500 max-w-xl mx-auto">
-              Platform ödeme transferi yapmaz. Tek gelir kaynağı müteahhit aboneliğidir. Alıcı-satıcı ödemeleri doğrudan IBAN ile gerçekleşir.
+              Müteahhit firmalar projelerini listeler, alıcılar ücretsiz keşfeder.
             </p>
           </div>
 
@@ -100,9 +100,9 @@ export default function PricingPage() {
             ))}
           </div>
 
-          <div className="mt-10 bg-amber-50 border border-amber-200 rounded-2xl p-6 text-sm text-amber-800">
-            <p className="font-semibold mb-1">Önemli Not</p>
-            <p>YatırımSahası, alıcı ve satıcı arasında para transferine aracılık etmez. Platform yalnızca listeleme ve talep eşleştirme hizmeti sunar. Tüm ödemeler taraflar arasında doğrudan IBAN ile gerçekleşir. Platformun tek gelir kaynağı müteahhit firmalardan alınan abonelik ücretidir.</p>
+          <div className="mt-10 bg-emerald-50 border border-emerald-200 rounded-2xl p-6 text-sm text-emerald-800">
+            <p className="font-semibold mb-1">Nasıl çalışır?</p>
+            <p>Alıcılar platformu ücretsiz kullanır; proje keşfeder, talep oluşturur ve müteahhitle doğrudan iletişime geçer. Satış tamamlandığında YatırımSahası işlem üzerinden komisyon alır. Bu model, müteahhitler için gerçek satışa dönüşmeyen maliyeti sıfıra indirir; alıcılar içinse aracısız erişimi güvence altına alır.</p>
           </div>
         </div>
       </main>
