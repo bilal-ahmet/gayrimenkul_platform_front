@@ -13,27 +13,27 @@ export default function KullanimKosullariPage() {
           <div className="prose prose-sm max-w-none text-gray-600 space-y-6">
             <section>
               <h2 className="text-base font-semibold text-gray-800 mb-2">1. Hizmetin Kapsamı</h2>
-              <p>YatırımSahası, müteahhit firmalar ile alıcılar/yatırımcılar arasında proje listeleme ve talep eşleştirme hizmeti sunar. Platform herhangi bir gayrimenkul işlemine taraf değildir.</p>
+              <p>YatırımSahası, kurumsal firmalar ile alıcılar/yatırımcılar arasında proje listeleme ve talep eşleştirme hizmeti sunar. Platform herhangi bir gayrimenkul işlemine taraf değildir.</p>
             </section>
 
             <section>
               <h2 className="text-base font-semibold text-gray-800 mb-2">2. Ödeme ve Komisyon</h2>
-              <p>Platform alıcı-satıcı arasındaki ödemelere aracılık etmez. Platformun tek gelir kaynağı müteahhit firmalardan alınan abonelik ücretidir. Alıcılar için platform tamamen ücretsizdir.</p>
+              <p>Platform alıcı-satıcı arasındaki ödemelere aracılık etmez. Platformun tek gelir kaynağı kurumsal firmalardan alınan abonelik ücretidir. Alıcılar için platform tamamen ücretsizdir.</p>
             </section>
 
             <section>
-              <h2 className="text-base font-semibold text-gray-800 mb-2">3. Müteahhit Sorumlulukları</h2>
-              <p>Müteahhitler, yayınladıkları proje bilgilerinin doğruluğundan sorumludur. Yanıltıcı ilan yayınlama hesap askıya alınmasına yol açar.</p>
+              <h2 className="text-base font-semibold text-gray-800 mb-2">3. Kurumsal Firma Sorumlulukları</h2>
+              <p>Kurumsal firmalar, yayınladıkları proje bilgilerinin doğruluğundan sorumludur. Yanıltıcı ilan yayınlama hesap askıya alınmasına yol açar.</p>
             </section>
 
             <section>
               <h2 className="text-base font-semibold text-gray-800 mb-2">4. Talep Formu</h2>
-              <p>Alıcı talep formu bir "bildirim aboneliği"dir; satın alma taahhüdü oluşturmaz. Müteahhitler alıcı kimliklerini göremez.</p>
+              <p>Alıcı talep formu bir "bildirim aboneliği"dir; satın alma taahhüdü oluşturmaz. Kurumsal firmalar alıcı kimliklerini göremez.</p>
             </section>
 
             <section>
               <h2 className="text-base font-semibold text-gray-800 mb-2">5. Hesap İptali</h2>
-              <p>Her kullanıcı hesabını dilediği zaman silebilir. Müteahhit hesabı iptalinde aktif ilanlar otomatik olarak yayından kaldırılır.</p>
+              <p>Her kullanıcı hesabını dilediği zaman silebilir. Kurumsal hesap iptalinde aktif ilanlar otomatik olarak yayından kaldırılır.</p>
             </section>
 
             <div className="bg-amber-50 border border-amber-200 rounded-xl px-4 py-3 text-xs text-amber-700 mt-8">

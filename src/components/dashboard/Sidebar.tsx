@@ -54,7 +54,7 @@ export default function Sidebar() {
             </div>
             <span className="font-bold text-gray-900 text-sm">YatırımSahası</span>
           </Link>
-          <p className="text-xs text-gray-400 mt-1 pl-9">Müteahhit Paneli</p>
+          <p className="text-xs text-gray-400 mt-1 pl-9">Kurumsal Panel</p>
         </div>
         <nav className="flex-1 flex flex-col gap-1 p-3">
           <NavLinks />

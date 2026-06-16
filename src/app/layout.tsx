@@ -13,9 +13,9 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "YatırımSahası – B2B Gayrimenkul Platformu",
+  title: "YatırımSahası – Yeni Nesil Gayrimenkul Platformu",
   description:
-    "Müteahhit firmalar projelerini listeler, alıcılar ve yatırımcılar keşfeder. Aracısız gayrimenkul platformu.",
+    "Kurumsal firmalar projelerini listeler, alıcılar ve yatırımcılar keşfeder. Aracısız gayrimenkul platformu.",
 };
 
 export default function RootLayout({

@@ -32,8 +32,8 @@ export default function Footer() {
             <ul className="space-y-2 text-sm">
               <li><Link href="/login" className="hover:text-white transition-colors">Giriş Yap</Link></li>
               <li><Link href="/register" className="hover:text-white transition-colors">Üye Ol</Link></li>
-              <li><Link href="/register?role=contractor" className="hover:text-white transition-colors">Müteahhit Kaydı</Link></li>
-              <li><Link href="/dashboard" className="hover:text-white transition-colors">Müteahhit Paneli</Link></li>
+              <li><Link href="/register?role=contractor" className="hover:text-white transition-colors">Kurumsal Kayıt</Link></li>
+              <li><Link href="/dashboard" className="hover:text-white transition-colors">Kurumsal Panel</Link></li>
             </ul>
           </div>
         </div>

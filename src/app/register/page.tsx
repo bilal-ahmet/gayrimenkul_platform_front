@@ -59,7 +59,7 @@ function RegisterForm() {
     <>
       {/* Rol Seçimi */}
       <div className="grid grid-cols-2 gap-3 mb-8">
-        {([["buyer","👤","Alıcı / Yatırımcı","Proje keşfet, talep oluştur"],["contractor","🏗️","Müteahhit","Proje listele, talepleri gör"]] as const).map(([r, icon, title, desc]) => (
+        {([["buyer","👤","Alıcı / Yatırımcı","Proje keşfet, talep oluştur"],["contractor","🏗️","Kurumsal Firma","Proje listele, talepleri gör"]] as const).map(([r, icon, title, desc]) => (
           <button key={r} type="button" onClick={() => setRole(r)}
             className={`flex flex-col items-center gap-2 p-4 rounded-xl border-2 transition-all ${role === r ? (r === "contractor" ? "border-amber-500 bg-amber-50" : "border-emerald-600 bg-emerald-50") : "border-gray-200 hover:border-gray-300"}`}>
             <span className="text-2xl">{icon}</span>
@@ -80,7 +80,7 @@ function RegisterForm() {
           </div>
         </div>
 
-        {/* Müteahhit alanları */}
+        {/* Kurumsal firma alanları */}
         {role === "contractor" && (
           <div className="border-t border-gray-100 pt-5">
             <div className="flex items-center gap-2 mb-4">
@@ -124,7 +124,7 @@ function RegisterForm() {
                 </div>
               </div>
               <p className="text-xs text-amber-700 bg-amber-100 rounded-lg px-3 py-2">
-                ⚠️ Müteahhit hesabınız incelendikten sonra aktif hale gelecektir.
+                ⚠️ Kurumsal hesabınız incelendikten sonra aktif hale gelecektir.
               </p>
             </div>
           </div>
@@ -152,7 +152,7 @@ function RegisterForm() {
 
         <button type="submit" disabled={loading}
           className={`w-full font-semibold py-3 rounded-xl transition-colors text-sm text-white ${role === "contractor" ? "bg-amber-500 hover:bg-amber-600 disabled:bg-amber-300" : "bg-emerald-700 hover:bg-emerald-800 disabled:bg-emerald-400"}`}>
-          {loading ? "Kaydediliyor..." : role === "contractor" ? "Müteahhit Hesabı Oluştur" : "Üye Ol"}
+          {loading ? "Kaydediliyor..." : role === "contractor" ? "Kurumsal Hesap Oluştur" : "Üye Ol"}
         </button>
       </form>
     </>

@@ -52,13 +52,6 @@ function LoginForm() {
         </div>
       )}
 
-      {/* Demo hint */}
-      <div className="bg-amber-50 border border-amber-200 rounded-xl px-4 py-3 text-xs text-amber-800 mb-6">
-        <p className="font-semibold mb-1">Demo girişleri:</p>
-        <p>Müteahhit: <span className="font-mono">contractor@demo.com</span> / <span className="font-mono">123456</span></p>
-        <p>Alıcı: <span className="font-mono">buyer@demo.com</span> / <span className="font-mono">123456</span></p>
-      </div>
-
       <form onSubmit={handleSubmit} className="space-y-5">
         <div>
           <label className="block text-sm font-medium text-gray-700 mb-1.5">E-posta</label>

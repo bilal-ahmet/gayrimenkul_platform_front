@@ -112,7 +112,7 @@ export default async function ProjectDetailPage({ params }: { params: Promise<{ 
                   <p>• Peşin (%3 indirim)</p>
                   <p>• 12 – 24 ay taksit</p>
                   <p>• Banka finansmanı</p>
-                  <p className="text-gray-400 italic mt-1">Ödeme detayları müteahhitle doğrudan görüşülür.</p>
+                  <p className="text-gray-400 italic mt-1">Ödeme detayları kurumsal firmayla doğrudan görüşülür.</p>
                 </div>
 
                 {contractor && <ContactInfoModal contractor={contractor} />}

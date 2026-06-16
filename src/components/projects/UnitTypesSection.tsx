@@ -138,7 +138,7 @@ export default function UnitTypesSection({ unitTypes }: { unitTypes: UnitType[] 
               <div className="flex flex-col items-center justify-center gap-3 py-14 bg-gray-50 rounded-xl text-gray-400 border border-dashed border-gray-200">
                 <Maximize2 className="w-12 h-12 text-gray-300" />
                 <p className="text-sm">Mimari çizim henüz yüklenmedi</p>
-                <p className="text-xs text-gray-300">Detaylı kat planı için müteahhitle iletişime geçin</p>
+                <p className="text-xs text-gray-300">Detaylı kat planı için kurumsal firmayla iletişime geçin</p>
               </div>
             )}
           </div>

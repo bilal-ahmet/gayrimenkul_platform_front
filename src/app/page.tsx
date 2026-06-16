@@ -21,23 +21,15 @@ export default function Home() {
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-28">
           <div className="max-w-2xl">
             <span className="inline-block bg-amber-400 text-amber-900 text-xs font-semibold px-3 py-1 rounded-full mb-4">
-              Türkiye&apos;nin B2B Gayrimenkul Platformu
+              Türkiye&apos;nin Yeni Nesil Gayrimenkul Platformu
             </span>
             <h1 className="text-4xl md:text-5xl font-bold leading-tight mb-5">
-              Müteahhit projeleri<br />
+              Kurumsal projeler<br />
               <span className="text-emerald-300">doğrudan listede</span>
             </h1>
             <p className="text-lg text-emerald-100 mb-8 max-w-xl">
-              Aracısız. Müteahhit firmaları projelerini listeler, alıcılar ve yatırımcılar keşfeder ve talep oluşturur.
+              Aracısız ve şeffaf. Kurumsal firmalar projelerini doğrudan sergiler; alıcılar ve yatırımcılar inşaatın ilk gününden keşfeder, anında talep oluşturur.
             </p>
-            <div className="flex flex-col sm:flex-row gap-3">
-              <Link href="/register?role=contractor" className="inline-flex items-center justify-center bg-white text-emerald-800 font-semibold px-6 py-3 rounded-xl hover:bg-emerald-50 transition-colors">
-                Müteahhit Olarak Başla
-              </Link>
-              <Link href="/demand" className="inline-flex items-center justify-center border border-white/40 text-white font-semibold px-6 py-3 rounded-xl hover:bg-white/10 transition-colors">
-                Yatırım Talebi Oluştur
-              </Link>
-            </div>
           </div>
         </div>
       </section>
@@ -76,7 +68,7 @@ export default function Home() {
             İlk 12 ay ücretsiz
           </h2>
           <p className="text-emerald-100 mb-8 max-w-xl mx-auto">
-            Lansman döneminde tüm müteahhit hesapları ücretsiz. Projelerinizi listeleyin, taleplere ulaşın.
+            Lansmana özel: tüm kurumsal hesaplar tamamen ücretsiz. Projelerinizi yayınlayın, gerçek alıcı talepleriyle buluşun.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link href="/register?role=contractor" className="bg-white text-emerald-700 font-semibold px-8 py-3 rounded-xl hover:bg-emerald-50 transition-colors">

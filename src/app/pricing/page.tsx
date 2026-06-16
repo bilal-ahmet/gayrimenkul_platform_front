@@ -61,7 +61,7 @@ export default function PricingPage() {
           <div className="text-center mb-12">
             <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Sade ve şeffaf fiyatlandırma</h1>
             <p className="text-gray-500 max-w-xl mx-auto">
-              Müteahhit firmalar projelerini listeler, alıcılar ücretsiz keşfeder.
+              Kurumsal firmalar projelerini listeler, alıcılar ücretsiz keşfeder.
             </p>
           </div>
 
@@ -102,7 +102,7 @@ export default function PricingPage() {
 
           <div className="mt-10 bg-emerald-50 border border-emerald-200 rounded-2xl p-6 text-sm text-emerald-800">
             <p className="font-semibold mb-1">Nasıl çalışır?</p>
-            <p>Alıcılar platformu ücretsiz kullanır; proje keşfeder, talep oluşturur ve müteahhitle doğrudan iletişime geçer. Satış tamamlandığında YatırımSahası işlem üzerinden komisyon alır. Bu model, müteahhitler için gerçek satışa dönüşmeyen maliyeti sıfıra indirir; alıcılar içinse aracısız erişimi güvence altına alır.</p>
+            <p>Alıcılar platformu ücretsiz kullanır; proje keşfeder, talep oluşturur ve kurumsal firmayla doğrudan iletişime geçer. Bu model, kurumsal firmalar için gerçek satışa dönüşmeyen maliyeti sıfıra indirir; alıcılar içinse aracısız erişimi güvence altına alır.</p>
           </div>
         </div>
       </main>

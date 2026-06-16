@@ -102,7 +102,7 @@ export default function DemandPage() {
           <div className="mb-8">
             <h1 className="text-2xl font-bold text-gray-900">Taşınmaz Talep / Arama</h1>
             <p className="text-gray-500 text-sm mt-1">
-              Kriterlerinizi girin — sistemde eşleşen proje varsa anında gösterilir; yoksa talebiniz müteahhitlere iletilir.
+              Kriterlerinizi girin — sistemde eşleşen proje varsa anında gösterilir; yoksa talebiniz kurumsal firmalara iletilir.
             </p>
           </div>
 
@@ -238,8 +238,8 @@ export default function DemandPage() {
                 <div className="bg-emerald-50 border border-emerald-200 rounded-xl px-4 py-3 flex gap-3">
                   <ShieldCheck className="w-5 h-5 text-emerald-600 shrink-0 mt-0.5" />
                   <p className="text-xs text-emerald-800">
-                    <strong>Gizliliğiniz korunur.</strong> Kimliğiniz müteahhitlere gösterilmez.
-                    Müteahhitler yalnızca anonim toplu istatistik görür.
+                    <strong>Gizliliğiniz korunur.</strong> Kimliğiniz kurumsal firmalara gösterilmez.
+                    Kurumsal firmalar yalnızca anonim toplu istatistik görür.
                   </p>
                 </div>
 
@@ -285,7 +285,7 @@ export default function DemandPage() {
                   <p className="text-sm font-semibold text-gray-700">Eşleşen proje bulunamadı</p>
                   <p className="text-xs text-gray-500 mt-2 leading-relaxed">
                     Şu an kriterlere uyan aktif proje yok. Talebi kaydedin — yeni proje eklendiğinde bildirim alırsınız.
-                    Talebiniz aynı zamanda müteahhitlerin inşaat süreçlerini planlamasına katkı sağlar.
+                    Talebiniz aynı zamanda kurumsal firmaların inşaat süreçlerini planlamasına katkı sağlar.
                   </p>
                 </div>
               )}

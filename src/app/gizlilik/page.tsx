@@ -13,12 +13,12 @@ export default function GizlilikPage() {
           <div className="prose prose-sm max-w-none text-gray-600 space-y-6">
             <section>
               <h2 className="text-base font-semibold text-gray-800 mb-2">1. Toplanan Veriler</h2>
-              <p>YatırımSahası, platforma kayıt sırasında ad, e-posta, telefon ve (müteahhitler için) firma bilgileri toplar. Talep formlarında ise anonim konum ve bütçe tercihleri kaydedilir.</p>
+              <p>YatırımSahası, platforma kayıt sırasında ad, e-posta, telefon ve (kurumsal firmalar için) firma bilgileri toplar. Talep formlarında ise anonim konum ve bütçe tercihleri kaydedilir.</p>
             </section>
 
             <section>
               <h2 className="text-base font-semibold text-gray-800 mb-2">2. Verilerin Kullanımı</h2>
-              <p>Toplanan veriler yalnızca platform hizmetlerinin sunulması amacıyla kullanılır. Alıcı kimlikleri hiçbir zaman müteahhitlerle paylaşılmaz; müteahhitler yalnızca anonim toplu istatistik görür.</p>
+              <p>Toplanan veriler yalnızca platform hizmetlerinin sunulması amacıyla kullanılır. Alıcı kimlikleri hiçbir zaman kurumsal firmalarla paylaşılmaz; kurumsal firmalar yalnızca anonim toplu istatistik görür.</p>
             </section>
 
             <section>
