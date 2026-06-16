@@ -6,18 +6,10 @@ import { useRouter } from "next/navigation";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import Chip from "@/components/ui/Chip";
+import LocationPicker from "@/components/ui/LocationPicker";
 import ProjectCard from "@/components/projects/ProjectCard";
 import { projects } from "@/data/projects";
 
-const CITIES = ["İstanbul", "Ankara", "İzmir", "Antalya", "Bursa", "Kocaeli"]
-const DISTRICTS: Record<string, string[]> = {
-  "İstanbul":  ["Başakşehir", "Büyükçekmece", "Kadıköy", "Beşiktaş", "Şişli", "Ataşehir", "Maltepe", "Levent", "Ümraniye"],
-  "Ankara":    ["Çankaya", "Yenimahalle", "Keçiören", "Mamak"],
-  "İzmir":     ["Karşıyaka", "Bornova", "Konak", "Buca"],
-  "Antalya":   ["Muratpaşa", "Konyaaltı", "Kepez"],
-  "Bursa":     ["Osmangazi", "Nilüfer", "Yıldırım"],
-  "Kocaeli":   ["İzmit", "Gebze", "Kartepe", "Gölcük", "Darıca", "Çayırova", "Körfez", "Derince", "Başiskele", "Kandıra", "Karamürsel", "Dilovası"],
-}
 const ROOM_TYPES    = ["1+1", "2+1", "3+1", "4+1", "5+1"]
 const PROPERTY_TYPES = ["daire", "villa", "dükkan", "ofis", "rezidans", "karma"]
 const TIMELINES     = [
@@ -111,37 +103,14 @@ export default function DemandPage() {
             <div className="lg:col-span-2 space-y-6">
               <div className="bg-white rounded-2xl border border-gray-200 p-6 space-y-6">
 
-                {/* Şehir */}
+                {/* Konum (il + ilçe) */}
                 <div>
-                  <label className="block text-sm font-semibold text-gray-700 mb-3">Şehir</label>
-                  <div className="flex flex-wrap gap-2">
-                    {CITIES.map(c => (
-                      <Chip
-                        key={c}
-                        label={c}
-                        selected={city === c}
-                        onClick={() => { setCity(c); setSelectedDistricts([]) }}
-                      />
-                    ))}
-                  </div>
+                  <label className="block text-sm font-semibold text-gray-700 mb-3">Konum</label>
+                  <LocationPicker
+                    value={{ city, districts: selectedDistricts }}
+                    onChange={({ city: c, districts }) => { setCity(c); setSelectedDistricts(districts) }}
+                  />
                 </div>
-
-                {/* İlçe */}
-                {city && DISTRICTS[city] && (
-                  <div>
-                    <label className="block text-sm font-semibold text-gray-700 mb-3">İlçe</label>
-                    <div className="flex flex-wrap gap-2">
-                      {DISTRICTS[city].map(d => (
-                        <Chip
-                          key={d}
-                          label={d}
-                          selected={selectedDistricts.includes(d)}
-                          onClick={() => setSelectedDistricts(prev => toggle(prev, d))}
-                        />
-                      ))}
-                    </div>
-                  </div>
-                )}
 
                 {/* Mülk tipi */}
                 <div>

@@ -2,10 +2,12 @@
 
 import { Search } from "lucide-react";
 import Chip from "@/components/ui/Chip";
+import LocationPicker from "@/components/ui/LocationPicker";
 
 export type FilterState = {
   type: string
   city: string
+  districts: string[]
   search: string
 }
 
@@ -17,14 +19,14 @@ const TYPE_OPTIONS = [
   { value: 'completed', label: 'Teslim Hazır' },
 ]
 
-const CITIES = ['', 'İstanbul', 'Ankara', 'İzmir', 'Antalya', 'Bursa', 'Kocaeli']
-
 interface FilterBarProps {
   filter: FilterState
   onChange: (f: FilterState) => void
+  /** İl adı → aktif proje sayısı (LocationPicker rozetleri için) */
+  counts?: Record<string, number>
 }
 
-export default function FilterBar({ filter, onChange }: FilterBarProps) {
+export default function FilterBar({ filter, onChange, counts }: FilterBarProps) {
   return (
     <div className="flex flex-col sm:flex-row gap-3 items-start sm:items-center flex-wrap">
       {/* Search */}
@@ -51,15 +53,12 @@ export default function FilterBar({ filter, onChange }: FilterBarProps) {
         ))}
       </div>
 
-      {/* City select */}
-      <select
-        value={filter.city}
-        onChange={(e) => onChange({ ...filter, city: e.target.value })}
-        className="px-3 py-2 rounded-xl border border-gray-300 text-sm focus:outline-none focus:ring-2 focus:ring-emerald-500 bg-white"
-      >
-        <option value="">Tüm Şehirler</option>
-        {CITIES.filter(Boolean).map((c) => <option key={c} value={c}>{c}</option>)}
-      </select>
+      {/* Konum (il + ilçe) */}
+      <LocationPicker
+        value={{ city: filter.city, districts: filter.districts }}
+        onChange={(loc) => onChange({ ...filter, ...loc })}
+        counts={counts}
+      />
     </div>
   )
 }
