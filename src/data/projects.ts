@@ -110,7 +110,7 @@ const rawProjects: Project[] = [
     occupancyReady: true,
     status: 'completed',
     rating: 4.7,
-    imageUrl: '/projects/akyapi-mavera-comfort.jpg',
+    gallery: gal('mavera-comfort', ['g1.png', 'g2.png', 'g3.png', 'g4.png', 'g5.png', 'g6.png', 'g7.png']),
     unitTypes: [
       { oda: '1+1', m2: { min: 75, max: 90 }, count: 90, available: 0, sold: 90, priceFrom: 4_500_000, features: ['Ankastre mutfak'] },
       { oda: '2+1', m2: { min: 95, max: 130 }, count: 100, available: 10, sold: 90, priceFrom: 6_200_000, features: ['Geniş salon'] },
@@ -137,7 +137,7 @@ const rawProjects: Project[] = [
     occupancyReady: true,
     status: 'completed',
     rating: 4.6,
-    imageUrl: '/projects/akyapi-park-mavera.jpg',
+    gallery: gal('park-mavera', ['g1.jpg', 'g2.jpg', 'g3.jpg', 'g4.jpg', 'g5.jpg', 'g6.jpg', 'g7.jpg']),
     unitTypes: [
       { oda: '1+1', m2: { min: 65, max: 80 }, count: 60, available: 0, sold: 60, priceFrom: 3_800_000 },
       { oda: '2+1', m2: { min: 90, max: 115 }, count: 80, available: 0, sold: 80, priceFrom: 5_100_000 },
@@ -194,8 +194,7 @@ const rawProjects: Project[] = [
     occupancyReady: false,
     status: 'live',
     rating: 4.6,
-    imageUrl: '/projects/zeray-gazania/g1.jpg',
-    gallery: gal('zeray-gazania', ['g1.jpg']),
+    gallery: gal('zeray-gazania', ['g1.jpg', 'g4.webp', 'g5.webp', 'g6.webp', 'g7.webp', 'g9.webp', 'g2.webp', 'g3.webp', 'g8.webp']),
     unitTypes: [
       { oda: '1+1', m2: { min: 55, max: 72 }, count: 80, available: 55, sold: 25, priceFrom: 2_800_000, features: ['Açık havuz manzarası'] },
       { oda: '2+1', m2: { min: 90, max: 120 }, count: 120, available: 85, sold: 35, priceFrom: 3_900_000, features: ['Geniş balkon'] },
@@ -250,7 +249,7 @@ const rawProjects: Project[] = [
     occupancyReady: true,
     status: 'completed',
     rating: 4.5,
-    imageUrl: '/projects/zeray-gunesi.jpg',
+    gallery: gal('zeray-gunesi', ['g1.webp', 'g2.webp', 'g3.webp', 'g4.webp', 'g5.webp', 'g6.webp', 'g7.webp']),
     unitTypes: [
       { oda: '1+1', m2: { min: 87, max: 100 }, count: 60, available: 2, sold: 58, priceFrom: 2_600_000 },
       { oda: '2+1', m2: { min: 110, max: 140 }, count: 120, available: 5, sold: 115, priceFrom: 3_500_000 },
@@ -421,33 +420,6 @@ const rawProjects: Project[] = [
     phaseDetails: buildPhaseDetails('kaba', 45),
     techSpecs: STANDARD_TECH_SPECS,
   },
-  {
-    id: 'p16',
-    name: 'Garden Kartepe',
-    contractorId: 'c4',
-    location: { city: 'Kocaeli', district: 'Kartepe' },
-    type: 'daire',
-    priceStart: 2_500_000,
-    currency: 'TRY',
-    sqmRange: { min: 95, max: 165 },
-    roomTypes: ['2+1', '3+1'],
-    totalUnits: 33,
-    soldUnits: 33,
-    completionPercent: 100,
-    phase: 'teslim',
-    estimatedDelivery: 'Teslim Edildi',
-    occupancyReady: true,
-    status: 'completed',
-    rating: 4.4,
-    gallery: gal('garden-kartepe', ['g1.jpg', 'g2.jpg', 'g3.jpg', 'g4.jpg', 'g5.jpg', 'g6.jpg']),
-    unitTypes: [
-      { oda: '2+1', m2: { min: 95, max: 125 }, count: 20, available: 0, sold: 20, priceFrom: 2_500_000 },
-      { oda: '3+1', m2: { min: 135, max: 165 }, count: 13, available: 0, sold: 13, priceFrom: 3_400_000 },
-    ],
-    phaseDetails: buildPhaseDetails('teslim', 100),
-    techSpecs: STANDARD_TECH_SPECS,
-  },
-
   // ═══════════════════════ c5 · Haldız İnşaat — İstanbul / ulusal ═══════════════════════
   {
     id: 'p17',
