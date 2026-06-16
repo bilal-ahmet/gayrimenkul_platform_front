@@ -13,9 +13,9 @@ export default function ProgressBar({ percent, showLabel = true }: ProgressBarPr
           <span className="font-medium text-emerald-700">%{clamped}</span>
         </div>
       )}
-      <div className="h-1.5 bg-gray-100 rounded-full overflow-hidden">
+      <div className="h-1.5 bg-gray-200/70 rounded-full overflow-hidden">
         <div
-          className="h-full bg-emerald-500 rounded-full transition-all"
+          className="h-full rounded-full transition-all bg-gradient-to-r from-emerald-700 to-amber-500"
           style={{ width: `${clamped}%` }}
         />
       </div>

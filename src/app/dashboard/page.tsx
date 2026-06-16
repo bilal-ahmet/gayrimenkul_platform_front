@@ -23,7 +23,8 @@ export default function DashboardPage() {
   return (
     <main className="p-6 md:p-8">
       <div className="mb-8">
-        <h1 className="text-2xl font-bold text-gray-900">Genel Bakış</h1>
+        <span className="eyebrow text-amber-600">Kurumsal Panel</span>
+        <h1 className="text-3xl text-gray-900 mt-1.5">Genel Bakış</h1>
         <p className="text-gray-500 text-sm mt-1">
           {user ? `Hoş geldiniz, ${user.name}.` : "Hoş geldiniz."} Bugünkü özet aşağıda.
         </p>

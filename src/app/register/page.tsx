@@ -151,7 +151,7 @@ function RegisterForm() {
         </div>
 
         <button type="submit" disabled={loading}
-          className={`w-full font-semibold py-3 rounded-xl transition-colors text-sm text-white ${role === "contractor" ? "bg-amber-500 hover:bg-amber-600 disabled:bg-amber-300" : "bg-emerald-700 hover:bg-emerald-800 disabled:bg-emerald-400"}`}>
+          className={`w-full font-semibold py-3 rounded-full ring-1 transition-colors text-sm tracking-wide ${role === "contractor" ? "bg-amber-500 hover:bg-amber-600 disabled:bg-amber-300 text-emerald-950 ring-amber-700/20" : "bg-emerald-700 hover:bg-emerald-800 disabled:bg-emerald-400 text-amber-50 ring-amber-400/25"}`}>
           {loading ? "Kaydediliyor..." : role === "contractor" ? "Kurumsal Hesap Oluştur" : "Üye Ol"}
         </button>
       </form>
@@ -165,9 +165,10 @@ export default function RegisterPage() {
       <Navbar />
       <main className="flex-1 bg-gray-50 py-12 px-4">
         <div className="w-full max-w-lg mx-auto">
-          <div className="bg-white rounded-2xl shadow-sm border border-gray-200 p-8">
+          <div className="bg-white rounded-2xl shadow-luxe border border-gray-200 p-8">
             <div className="text-center mb-6">
-              <h1 className="text-2xl font-bold text-gray-900">Hesap oluştur</h1>
+              <span className="eyebrow text-amber-600">Katılın</span>
+              <h1 className="text-3xl text-gray-900 mt-2">Hesap oluştur</h1>
               <p className="text-gray-500 text-sm mt-1">
                 Zaten hesabınız var mı?{" "}
                 <Link href="/login" className="text-emerald-600 font-medium hover:underline">Giriş yapın</Link>

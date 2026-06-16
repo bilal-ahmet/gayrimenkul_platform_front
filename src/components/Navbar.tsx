@@ -35,29 +35,29 @@ export default function Navbar() {
     href === "/" ? pathname === "/" : pathname.startsWith(href);
 
   return (
-    <header className="bg-white border-b border-gray-200 sticky top-0 z-50">
+    <header className="sticky top-0 z-50 bg-[var(--paper)]/80 backdrop-blur-md border-b border-gray-200">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16">
+        <div className="flex items-center justify-between h-[4.5rem]">
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-2">
-            <div className="w-8 h-8 bg-emerald-700 rounded-lg flex items-center justify-center">
-              <Home className="w-5 h-5 text-white" />
-            </div>
-            <span className="text-xl font-bold text-gray-900">
-              Yatırım<span className="text-emerald-700">Sahası</span>
+          <Link href="/" className="flex items-center gap-2.5 group">
+            <span className="relative w-9 h-9 rounded-md bg-emerald-700 ring-1 ring-amber-400/40 flex items-center justify-center transition-transform group-hover:-rotate-3">
+              <Home className="w-4 h-4 text-amber-200" />
+            </span>
+            <span className="font-display text-[1.35rem] leading-none tracking-tight text-gray-900">
+              Yatırım<span className="text-amber-600 italic">Sahası</span>
             </span>
           </Link>
 
           {/* Desktop Nav */}
-          <nav className="hidden md:flex items-center gap-8">
+          <nav className="hidden md:flex items-center gap-9">
             {NAV_LINKS.map(({ href, label }) => (
               <Link
                 key={href}
                 href={href}
-                className={`text-sm font-medium transition-colors ${
+                className={`relative text-sm tracking-wide transition-colors py-1 ${
                   isActive(href)
-                    ? "text-emerald-700 font-semibold"
-                    : "text-gray-600 hover:text-emerald-700"
+                    ? "text-gray-900 font-semibold after:absolute after:-bottom-0.5 after:left-0 after:h-px after:w-full after:bg-amber-500"
+                    : "text-gray-600 font-medium hover:text-gray-900"
                 }`}
               >
                 {label}
@@ -104,13 +104,13 @@ export default function Navbar() {
               <>
                 <Link
                   href="/login"
-                  className="text-sm font-medium text-gray-700 hover:text-emerald-700 px-4 py-2 rounded-lg transition-colors"
+                  className="text-sm font-medium text-gray-700 hover:text-gray-900 px-3 py-2 transition-colors"
                 >
                   Giriş Yap
                 </Link>
                 <Link
                   href="/register"
-                  className="text-sm font-medium text-white bg-emerald-700 hover:bg-emerald-800 px-4 py-2 rounded-lg transition-colors"
+                  className="text-sm font-semibold text-amber-50 bg-emerald-700 hover:bg-emerald-800 px-5 py-2.5 rounded-full ring-1 ring-amber-400/30 transition-colors"
                 >
                   Üye Ol
                 </Link>

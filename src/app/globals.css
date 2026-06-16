@@ -1,19 +1,159 @@
 @import "tailwindcss";
 
+/* =========================================================================
+   YatırımSahası — "Architectural Digest" luxury design system
+   Pine green + brass on warm ivory. Editorial serif + refined sans.
+   The brand's green/amber scales are remapped here so the entire app
+   inherits the refined palette through its existing utility classes.
+   ========================================================================= */
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Core ground */
+  --paper: #f4f0e8;      /* warm ivory page ground */
+  --paper-2: #ece6db;    /* slightly deeper paper */
+  --ink: #20201c;        /* warm near-black */
+  --brass: #b08a47;      /* primary metallic accent */
+  --brass-soft: #c9a86a;
+  --pine: #233a2e;       /* deep forest primary */
+
+  --background: var(--paper);
+  --foreground: var(--ink);
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+
+  --font-sans: var(--font-sans), "Manrope", system-ui, sans-serif;
+  --font-display: var(--font-display), "Fraunces", Georgia, serif;
+  --font-serif: var(--font-display), "Fraunces", Georgia, serif;
+
+  /* ---- emerald → sophisticated PINE / FOREST ---- */
+  --color-emerald-50:  #eef2ee;
+  --color-emerald-100: #dbe5dd;
+  --color-emerald-200: #b9ccbf;
+  --color-emerald-300: #8fae98;
+  --color-emerald-400: #5e8169;
+  --color-emerald-500: #3f6048;
+  --color-emerald-600: #2f4a38;
+  --color-emerald-700: #233a2e;
+  --color-emerald-800: #1a2c23;
+  --color-emerald-900: #131f19;
+  --color-emerald-950: #0c140f;
+
+  /* ---- amber → BRASS / GOLD ---- */
+  --color-amber-50:  #faf5ea;
+  --color-amber-100: #f3e8d0;
+  --color-amber-200: #e7d2a6;
+  --color-amber-300: #d7b878;
+  --color-amber-400: #c9a25a;
+  --color-amber-500: #b08a47;
+  --color-amber-600: #94713a;
+  --color-amber-700: #745831;
+  --color-amber-800: #5d472b;
+  --color-amber-900: #4b3a25;
+
+  /* ---- gray → warm STONE / TAUPE ---- */
+  --color-gray-50:  #f7f4ee;
+  --color-gray-100: #efeae0;
+  --color-gray-200: #e3dccf;
+  --color-gray-300: #cabfac;
+  --color-gray-400: #a89c86;
+  --color-gray-500: #837861;
+  --color-gray-600: #615847;  /* body copy */
+  --color-gray-700: #494236;
+  --color-gray-800: #322e26;
+  --color-gray-900: #20201c;  /* ink */
+
+  /* ---- blue (completed badge) → muted slate-teal ---- */
+  --color-blue-100: #d9e2e2;
+  --color-blue-800: #2c4a48;
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
+@layer base {
+  html {
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  body {
+    background: var(--background);
+    color: var(--foreground);
+    font-family: var(--font-sans);
+    font-feature-settings: "ss01", "cv01";
+    letter-spacing: -0.006em;
+  }
+
+  /* Editorial serif headings everywhere */
+  h1, h2, h3, h4 {
+    font-family: var(--font-display);
+    font-weight: 540;
+    letter-spacing: -0.02em;
+    color: var(--ink);
+  }
+
+  ::selection {
+    background: var(--pine);
+    color: var(--paper);
+  }
+
+  /* Refined, brand-tinted focus ring */
+  *:focus-visible {
+    outline: 2px solid var(--brass);
+    outline-offset: 2px;
+    border-radius: 2px;
+  }
+}
+
+@layer utilities {
+  /* Display utility for hero headlines (serif, optical) */
+  .font-display { font-family: var(--font-display); }
+  .text-balance { text-wrap: balance; }
+
+  /* Brass label — small-caps editorial eyebrow */
+  .eyebrow {
+    font-family: var(--font-sans);
+    text-transform: uppercase;
+    letter-spacing: 0.22em;
+    font-size: 0.6875rem;
+    font-weight: 600;
+  }
+
+  /* Hairline divider, brass-tinted */
+  .rule-brass {
+    border-color: color-mix(in srgb, var(--brass) 45%, transparent);
+  }
+
+  /* Subtle paper grain for atmosphere on dark/photographic panels */
+  .grain::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0.045;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    mix-blend-mode: overlay;
+  }
+
+  /* Premium soft shadow for floating cards */
+  .shadow-luxe {
+    box-shadow:
+      0 1px 1px rgba(32, 32, 28, 0.04),
+      0 8px 24px -12px rgba(32, 32, 28, 0.18);
+  }
+  .shadow-luxe-lg {
+    box-shadow:
+      0 1px 2px rgba(32, 32, 28, 0.05),
+      0 24px 60px -28px rgba(32, 32, 28, 0.32);
+  }
+
+  /* Staggered entrance for hero composition */
+  @keyframes rise {
+    from { opacity: 0; transform: translateY(14px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  .rise {
+    opacity: 0;
+    animation: rise 0.9s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  }
 }

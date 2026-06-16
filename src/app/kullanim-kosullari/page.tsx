@@ -6,9 +6,10 @@ export default function KullanimKosullariPage() {
     <div className="flex flex-col min-h-screen">
       <Navbar />
       <main className="flex-1 bg-gray-50 py-12 px-4">
-        <div className="max-w-3xl mx-auto bg-white rounded-2xl border border-gray-200 p-8 md:p-12">
-          <h1 className="text-2xl font-bold text-gray-900 mb-2">Kullanım Koşulları</h1>
-          <p className="text-sm text-gray-400 mb-8">Son güncelleme: Haziran 2026</p>
+        <div className="max-w-3xl mx-auto bg-white rounded-2xl border border-gray-200 shadow-luxe p-8 md:p-12">
+          <span className="eyebrow text-amber-600">Yasal</span>
+          <h1 className="text-4xl text-gray-900 mt-2 mb-2">Kullanım Koşulları</h1>
+          <p className="text-sm text-gray-400 mb-8 pb-8 border-b rule-brass">Son güncelleme: Haziran 2026</p>
 
           <div className="prose prose-sm max-w-none text-gray-600 space-y-6">
             <section>

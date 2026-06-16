@@ -37,12 +37,13 @@ function LoginForm() {
   }
 
   return (
-    <div className="bg-white rounded-2xl shadow-sm border border-gray-200 p-8">
+    <div className="bg-white rounded-2xl shadow-luxe border border-gray-200 p-8">
       <div className="text-center mb-8">
-        <div className="w-12 h-12 bg-emerald-700 rounded-xl flex items-center justify-center mx-auto mb-4">
-          <Home className="w-7 h-7 text-white" />
+        <div className="w-12 h-12 bg-emerald-700 rounded-xl flex items-center justify-center mx-auto mb-4 ring-1 ring-amber-400/30">
+          <Home className="w-6 h-6 text-amber-200" />
         </div>
-        <h1 className="text-2xl font-bold text-gray-900">Tekrar hoş geldiniz</h1>
+        <span className="eyebrow text-amber-600">YatırımSahası</span>
+        <h1 className="text-3xl text-gray-900 mt-2">Tekrar hoş geldiniz</h1>
         <p className="text-gray-500 text-sm mt-1">Hesabınıza giriş yapın</p>
       </div>
 
@@ -84,7 +85,7 @@ function LoginForm() {
         <button
           type="submit"
           disabled={loading}
-          className="w-full bg-emerald-700 hover:bg-emerald-800 disabled:bg-emerald-400 text-white font-semibold py-3 rounded-xl transition-colors text-sm"
+          className="w-full bg-emerald-700 hover:bg-emerald-800 disabled:bg-emerald-400 text-amber-50 font-semibold py-3 rounded-full ring-1 ring-amber-400/25 transition-colors text-sm tracking-wide"
         >
           {loading ? "Giriş yapılıyor..." : "Giriş Yap"}
         </button>

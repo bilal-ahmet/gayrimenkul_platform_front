@@ -16,32 +16,41 @@ export default function Home() {
       <Navbar />
 
       {/* Hero */}
-      <section className="relative bg-gradient-to-br from-emerald-900 via-emerald-800 to-emerald-700 text-white">
-        <div className="absolute inset-0 bg-black/20" />
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-28">
-          <div className="max-w-2xl">
-            <span className="inline-block bg-amber-400 text-amber-900 text-xs font-semibold px-3 py-1 rounded-full mb-4">
-              Türkiye&apos;nin Yeni Nesil Gayrimenkul Platformu
-            </span>
-            <h1 className="text-4xl md:text-5xl font-bold leading-tight mb-5">
-              Kurumsal projeler<br />
-              <span className="text-emerald-300">doğrudan listede</span>
-            </h1>
-            <p className="text-lg text-emerald-100 mb-8 max-w-xl">
-              Aracısız ve şeffaf. Kurumsal firmalar projelerini doğrudan sergiler; alıcılar ve yatırımcılar inşaatın ilk gününden keşfeder, anında talep oluşturur.
-            </p>
-          </div>
-        </div>
-      </section>
+      <section className="relative overflow-hidden bg-emerald-950 text-amber-50 grain">
+        {/* atmospheric brass glow */}
+        <div className="absolute -top-40 -right-32 h-[34rem] w-[34rem] rounded-full bg-amber-500/10 blur-3xl" />
+        <div className="absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-amber-400/40 to-transparent" />
 
-      {/* Stats */}
-      <section className="bg-emerald-800 border-b border-emerald-700/50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
-          <div className="grid grid-cols-3 gap-6">
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 md:py-32">
+          <div className="max-w-3xl">
+            <span className="rise eyebrow text-amber-300/90 inline-flex items-center gap-2.5" style={{ animationDelay: "0.05s" }}>
+              <span className="h-px w-8 bg-amber-400/60" />
+              Türkiye&apos;nin yeni nesil gayrimenkul platformu
+            </span>
+            <h1 className="rise font-display mt-6 text-5xl md:text-[4.25rem] leading-[1.04] tracking-tight text-balance" style={{ animationDelay: "0.15s" }}>
+              Kurumsal projeler,{" "}
+              <span className="italic text-amber-300">doğrudan</span> sizin keşfinizde.
+            </h1>
+            <p className="rise mt-7 text-lg leading-relaxed text-emerald-100/75 max-w-xl" style={{ animationDelay: "0.28s" }}>
+              Aracısız ve şeffaf. Kurumsal firmalar projelerini doğrudan sergiler;
+              alıcılar ve yatırımcılar inşaatın ilk gününden keşfeder, anında talep oluşturur.
+            </p>
+            <div className="rise mt-9 flex flex-col sm:flex-row gap-3.5" style={{ animationDelay: "0.4s" }}>
+              <Link href="#projeler" className="text-center bg-amber-400 text-emerald-950 font-semibold px-7 py-3.5 rounded-full hover:bg-amber-300 transition-colors">
+                Projeleri Keşfet
+              </Link>
+              <Link href="/register?role=contractor" className="text-center border border-amber-400/40 text-amber-100 font-medium px-7 py-3.5 rounded-full hover:bg-amber-400/10 transition-colors">
+                Firma Olarak Katıl
+              </Link>
+            </div>
+          </div>
+
+          {/* Stats — brass-ruled editorial row */}
+          <div className="rise mt-16 md:mt-20 grid grid-cols-3 max-w-2xl divide-x divide-amber-400/20 border-t border-amber-400/20 pt-8" style={{ animationDelay: "0.5s" }}>
             {stats.map((s) => (
-              <div key={s.label} className="text-center">
-                <p className="text-2xl font-bold text-white">{s.value}</p>
-                <p className="text-sm text-emerald-300 mt-0.5">{s.label}</p>
+              <div key={s.label} className="px-4 first:pl-0">
+                <p className="font-display text-3xl md:text-4xl text-amber-50">{s.value}</p>
+                <p className="eyebrow mt-2 text-emerald-100/55">{s.label}</p>
               </div>
             ))}
           </div>
@@ -49,12 +58,15 @@ export default function Home() {
       </section>
 
       {/* Projects */}
-      <section className="flex-1 bg-gray-50 py-12">
+      <section id="projeler" className="flex-1 bg-gray-50 py-16 md:py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between mb-8">
-            <h2 className="text-2xl font-bold text-gray-900">Güncel Projeler</h2>
-            <Link href="/pricing" className="text-sm text-emerald-700 font-medium hover:underline">
-              Proje eklemek için →
+          <div className="flex items-end justify-between mb-10">
+            <div>
+              <span className="eyebrow text-amber-600">Vitrin</span>
+              <h2 className="font-display text-3xl md:text-4xl text-gray-900 mt-2">Güncel Projeler</h2>
+            </div>
+            <Link href="/pricing" className="hidden sm:inline-flex items-center gap-1.5 text-sm text-emerald-700 font-medium hover:text-amber-600 transition-colors">
+              Proje eklemek için <span aria-hidden>→</span>
             </Link>
           </div>
           <ProjectGrid projects={projects} />
@@ -62,19 +74,21 @@ export default function Home() {
       </section>
 
       {/* CTA */}
-      <section className="py-16 bg-emerald-700">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-2xl md:text-3xl font-bold text-white mb-4">
-            İlk 12 ay ücretsiz
+      <section className="relative overflow-hidden bg-emerald-900 grain py-20">
+        <div className="absolute -bottom-32 left-1/2 -translate-x-1/2 h-[26rem] w-[44rem] rounded-full bg-amber-500/10 blur-3xl" />
+        <div className="relative max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <span className="eyebrow text-amber-300/90">Lansmana özel</span>
+          <h2 className="font-display text-4xl md:text-5xl text-amber-50 mt-4 mb-5 text-balance">
+            İlk 12 ay <span className="italic text-amber-300">ücretsiz</span>
           </h2>
-          <p className="text-emerald-100 mb-8 max-w-xl mx-auto">
-            Lansmana özel: tüm kurumsal hesaplar tamamen ücretsiz. Projelerinizi yayınlayın, gerçek alıcı talepleriyle buluşun.
+          <p className="text-emerald-100/75 text-lg mb-9 max-w-xl mx-auto leading-relaxed">
+            Tüm kurumsal hesaplar tamamen ücretsiz. Projelerinizi yayınlayın, gerçek alıcı talepleriyle buluşun.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link href="/register?role=contractor" className="bg-white text-emerald-700 font-semibold px-8 py-3 rounded-xl hover:bg-emerald-50 transition-colors">
+            <Link href="/register?role=contractor" className="bg-amber-400 text-emerald-950 font-semibold px-8 py-3.5 rounded-full hover:bg-amber-300 transition-colors">
               Ücretsiz Başla
             </Link>
-            <Link href="/pricing" className="border border-white/40 text-white font-semibold px-8 py-3 rounded-xl hover:bg-white/10 transition-colors">
+            <Link href="/pricing" className="border border-amber-400/40 text-amber-100 font-medium px-8 py-3.5 rounded-full hover:bg-amber-400/10 transition-colors">
               Planları İncele
             </Link>
           </div>

@@ -29,7 +29,7 @@ export default function Sidebar() {
         const active = pathname === href || (href !== "/dashboard" && pathname.startsWith(href))
         return (
           <Link key={href} href={href} onClick={() => setOpen(false)}
-            className={`flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-medium transition-colors ${active ? "bg-emerald-50 text-emerald-700" : "text-gray-600 hover:bg-gray-100 hover:text-gray-900"}`}>
+            className={`flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-medium transition-colors ${active ? "bg-emerald-50 text-emerald-800 ring-1 ring-emerald-700/10" : "text-gray-600 hover:bg-gray-100 hover:text-gray-900"}`}>
             <Icon className="w-5 h-5 shrink-0" />
             {label}
           </Link>
@@ -64,10 +64,10 @@ export default function Sidebar() {
       {/* Mobile topbar */}
       <div className="md:hidden flex items-center justify-between px-4 py-3 bg-white border-b border-gray-200 sticky top-0 z-40">
         <Link href="/" className="flex items-center gap-2">
-          <div className="w-7 h-7 bg-emerald-700 rounded-lg flex items-center justify-center">
-            <Home className="w-4 h-4 text-white" />
+          <div className="w-8 h-8 bg-emerald-700 rounded-md flex items-center justify-center ring-1 ring-amber-400/30">
+            <Home className="w-4 h-4 text-amber-200" />
           </div>
-          <span className="font-bold text-gray-900 text-sm">YatırımSahası</span>
+          <span className="font-display text-base text-gray-900">Yatırım<span className="text-amber-600 italic">Sahası</span></span>
         </Link>
         <button onClick={() => setOpen(!open)} className="p-2 rounded-lg text-gray-600 hover:bg-gray-100">
           {open ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}

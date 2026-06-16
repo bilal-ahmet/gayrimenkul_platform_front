@@ -214,7 +214,7 @@ export default function DemandPage() {
 
                 <button
                   onClick={() => setSubmitted(true)}
-                  className="w-full bg-emerald-700 hover:bg-emerald-800 text-white font-semibold py-3 rounded-xl transition-colors text-sm"
+                  className="w-full bg-emerald-700 hover:bg-emerald-800 text-amber-50 font-semibold tracking-wide py-3 rounded-full ring-1 ring-amber-400/25 transition-colors text-sm"
                 >
                   {matchedProjects.length === 0 && hasAnyCriteria
                     ? "Talep Oluştur — Bildirim Al"

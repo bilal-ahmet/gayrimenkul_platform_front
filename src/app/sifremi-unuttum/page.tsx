@@ -20,12 +20,12 @@ export default function SifremiUnuttumPage() {
       <Navbar />
       <main className="flex-1 flex items-center justify-center bg-gray-50 py-12 px-4">
         <div className="w-full max-w-md">
-          <div className="bg-white rounded-2xl shadow-sm border border-gray-200 p-8">
+          <div className="bg-white rounded-2xl shadow-luxe border border-gray-200 p-8">
             <div className="text-center mb-8">
-              <div className="w-12 h-12 bg-emerald-100 rounded-xl flex items-center justify-center mx-auto mb-4">
-                <KeyRound className="w-6 h-6 text-emerald-700" />
+              <div className="w-12 h-12 bg-emerald-700 rounded-xl flex items-center justify-center mx-auto mb-4 ring-1 ring-amber-400/30">
+                <KeyRound className="w-6 h-6 text-amber-200" />
               </div>
-              <h1 className="text-2xl font-bold text-gray-900">Şifremi Unuttum</h1>
+              <h1 className="text-3xl text-gray-900">Şifremi Unuttum</h1>
             </div>
 
             {sent ? (
@@ -59,7 +59,7 @@ export default function SifremiUnuttumPage() {
                   </div>
                   <button
                     type="submit"
-                    className="w-full bg-emerald-700 hover:bg-emerald-800 text-white font-semibold py-3 rounded-xl transition-colors text-sm"
+                    className="w-full bg-emerald-700 hover:bg-emerald-800 text-amber-50 font-semibold tracking-wide py-3 rounded-full ring-1 ring-amber-400/25 transition-colors text-sm"
                   >
                     Sıfırlama Bağlantısı Gönder
                   </button>

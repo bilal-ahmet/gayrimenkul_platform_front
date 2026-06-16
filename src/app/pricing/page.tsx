@@ -58,33 +58,34 @@ export default function PricingPage() {
       <Navbar />
       <main className="flex-1 bg-gray-50 py-16 px-4">
         <div className="max-w-5xl mx-auto">
-          <div className="text-center mb-12">
-            <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Sade ve şeffaf fiyatlandırma</h1>
-            <p className="text-gray-500 max-w-xl mx-auto">
+          <div className="text-center mb-14">
+            <span className="eyebrow text-amber-600">Üyelik</span>
+            <h1 className="text-4xl md:text-5xl text-gray-900 mt-3 mb-4 text-balance">Sade ve şeffaf fiyatlandırma</h1>
+            <p className="text-gray-500 max-w-xl mx-auto leading-relaxed">
               Kurumsal firmalar projelerini listeler, alıcılar ücretsiz keşfeder.
             </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {plans.map((plan) => (
-              <div key={plan.name} className={`bg-white rounded-2xl border p-6 flex flex-col ${plan.featured ? "border-emerald-500 ring-2 ring-emerald-500 relative" : "border-gray-200"}`}>
+              <div key={plan.name} className={`rounded-2xl border p-7 flex flex-col transition-shadow ${plan.featured ? "border-emerald-700 bg-emerald-950 text-amber-50 shadow-luxe-lg relative grain overflow-hidden" : "bg-white border-gray-200 shadow-luxe"}`}>
                 {plan.featured && (
-                  <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-emerald-600 text-white text-xs font-semibold px-4 py-1 rounded-full">
+                  <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-amber-400 text-emerald-950 text-[0.7rem] font-semibold tracking-wide px-4 py-1 rounded-full">
                     Önerilen
                   </div>
                 )}
-                <div className="mb-6">
-                  <h2 className="text-lg font-bold text-gray-900">{plan.name}</h2>
+                <div className="mb-6 relative">
+                  <h2 className={`text-xl ${plan.featured ? "text-amber-50" : "text-gray-900"}`}>{plan.name}</h2>
                   <div className="mt-2 flex items-end gap-1">
-                    <span className="text-3xl font-bold text-gray-900">{plan.price}</span>
-                    <span className="text-gray-400 text-sm mb-1">{plan.sub}</span>
+                    <span className={`font-display text-4xl ${plan.featured ? "text-amber-300" : "text-gray-900"}`}>{plan.price}</span>
+                    <span className={`text-sm mb-1.5 ${plan.featured ? "text-emerald-100/60" : "text-gray-400"}`}>{plan.sub}</span>
                   </div>
                 </div>
 
-                <ul className="space-y-3 flex-1 mb-8">
+                <ul className="space-y-3 flex-1 mb-8 relative">
                   {plan.features.map((f) => (
-                    <li key={f} className="flex items-start gap-2 text-sm text-gray-600">
-                      <Check className="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" />
+                    <li key={f} className={`flex items-start gap-2.5 text-sm ${plan.featured ? "text-emerald-100/80" : "text-gray-600"}`}>
+                      <Check className={`w-4 h-4 shrink-0 mt-0.5 ${plan.featured ? "text-amber-300" : "text-emerald-600"}`} />
                       {f}
                     </li>
                   ))}
@@ -92,7 +93,7 @@ export default function PricingPage() {
 
                 <Link
                   href={plan.href}
-                  className={`block text-center font-semibold py-3 rounded-xl transition-colors text-sm ${plan.featured ? "bg-emerald-700 hover:bg-emerald-800 text-white" : "border border-gray-300 text-gray-700 hover:bg-gray-50"}`}
+                  className={`relative block text-center font-semibold tracking-wide py-3 rounded-full transition-colors text-sm ${plan.featured ? "bg-amber-400 hover:bg-amber-300 text-emerald-950" : "border border-gray-300 text-gray-700 hover:bg-gray-50"}`}
                 >
                   {plan.cta}
                 </Link>
