@@ -156,4 +156,13 @@
     opacity: 0;
     animation: rise 0.9s cubic-bezier(0.22, 1, 0.36, 1) forwards;
   }
+
+  /* Filtre paneli sola yanaşırken (scroll dock) yumuşak giriş */
+  @keyframes dockIn {
+    from { opacity: 0; transform: translateX(-18px) scale(0.98); }
+    to   { opacity: 1; transform: translateX(0) scale(1); }
+  }
+  .animate-dock {
+    animation: dockIn 0.5s cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
 }

@@ -17,8 +17,11 @@ export default function Home() {
 
       {/* Hero */}
       <section className="relative overflow-hidden bg-emerald-950 text-amber-50 grain">
-        {/* atmospheric brass glow */}
-        <div className="absolute -top-40 -right-32 h-[34rem] w-[34rem] rounded-full bg-amber-500/10 blur-3xl" />
+        {/* atmospheric brass glow — pulled into the corner, dimmed so it stays atmosphere, not haze */}
+        <div className="absolute -top-40 -right-32 h-[26rem] w-[26rem] md:h-[34rem] md:w-[34rem] rounded-full bg-amber-500/[0.08] blur-3xl" />
+        {/* directional scrim: keeps the text side deep pine so the headline reads cleanly over the glow.
+            Strong across the full width on mobile (headline is full-bleed there); lets the glow breathe on desktop. */}
+        <div className="absolute inset-0 bg-gradient-to-r from-emerald-950 via-emerald-950/90 to-emerald-950/55 md:via-emerald-950/60 md:to-transparent" />
         <div className="absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-amber-400/40 to-transparent" />
 
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 md:py-32">
@@ -27,22 +30,14 @@ export default function Home() {
               <span className="h-px w-8 bg-amber-400/60" />
               Türkiye&apos;nin yeni nesil gayrimenkul platformu
             </span>
-            <h1 className="rise font-display mt-6 text-5xl md:text-[4.25rem] leading-[1.04] tracking-tight text-balance" style={{ animationDelay: "0.15s" }}>
+            <h1 className="rise font-display mt-6 text-5xl md:text-[4.25rem] leading-[1.04] tracking-tight text-balance text-amber-50 [text-shadow:0_2px_30px_rgba(12,20,15,0.7)]" style={{ animationDelay: "0.15s" }}>
               Kurumsal projeler,{" "}
-              <span className="italic text-amber-300">doğrudan</span> sizin keşfinizde.
+              <span className="italic text-amber-200">doğrudan</span> sizin keşfinizde.
             </h1>
             <p className="rise mt-7 text-lg leading-relaxed text-emerald-100/75 max-w-xl" style={{ animationDelay: "0.28s" }}>
               Aracısız ve şeffaf. Kurumsal firmalar projelerini doğrudan sergiler;
               alıcılar ve yatırımcılar inşaatın ilk gününden keşfeder, anında talep oluşturur.
             </p>
-            <div className="rise mt-9 flex flex-col sm:flex-row gap-3.5" style={{ animationDelay: "0.4s" }}>
-              <Link href="#projeler" className="text-center bg-amber-400 text-emerald-950 font-semibold px-7 py-3.5 rounded-full hover:bg-amber-300 transition-colors">
-                Projeleri Keşfet
-              </Link>
-              <Link href="/register?role=contractor" className="text-center border border-amber-400/40 text-amber-100 font-medium px-7 py-3.5 rounded-full hover:bg-amber-400/10 transition-colors">
-                Firma Olarak Katıl
-              </Link>
-            </div>
           </div>
 
           {/* Stats — brass-ruled editorial row */}

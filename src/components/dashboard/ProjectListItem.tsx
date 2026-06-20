@@ -12,7 +12,7 @@ export default function ProjectListItem({ project }: { project: Project }) {
       <div className="flex items-center gap-3 min-w-0">
         <div className="w-10 h-10 bg-gray-100 rounded-xl flex items-center justify-center shrink-0 text-gray-400 text-lg">🏗</div>
         <div className="min-w-0">
-          <Link href={`/projects/${project.id}`} className="text-sm font-medium text-gray-900 hover:text-emerald-700 truncate block">{project.name}</Link>
+          <Link href={`/dashboard/projects/${project.id}`} className="text-sm font-medium text-gray-900 hover:text-emerald-700 truncate block">{project.name}</Link>
           <p className="text-xs text-gray-400">{project.location.district}, {project.location.city}</p>
         </div>
       </div>
